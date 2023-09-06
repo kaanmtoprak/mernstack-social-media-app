@@ -1,0 +1,107 @@
+@import "../../assets/styles/Settings/colors.scss";
+@import "../../assets/styles/Settings/mixins.scss";
+
+.ant-notification {
+
+  .toast {
+    width: 360px;
+    padding: 12px;
+    display: flex;
+
+    .ant-notification-notice-content {
+      @include inline-flex-center;
+      width: 100%;
+
+      .ant-notification-notice-with-icon {
+        @include flex-start-center;
+        width: 100%;
+
+        .ant-notification-notice-message {
+          margin: 0;
+          margin-left: 8px;
+        }
+        .ant-notification-notice-icon {
+          position: relative;
+          padding: 6px;
+
+          .icon {
+            &-success {
+              @extend .icon;
+              color: $green-base;
+
+            }
+            &-danger {
+              @extend .icon;
+              color: $red-base;
+
+            }
+            &-warning {
+              @extend .icon;
+              color: $yellow-base;
+
+            }
+            &-information {
+              @extend .icon;
+              color: $neutral-600;
+
+            }
+          }
+        }
+        .ant-notification-notice-description {
+          display: none;
+        }
+      }
+    }
+
+    .ant-notification-notice-close {
+        @include flex-center;
+       i {
+        &::before {
+            font-size: 24px;
+        }
+       }
+    }
+  }
+  .main {
+    position: absolute;
+    content: "";
+    width: 4px;
+    height: 32px;
+    left: 0px;
+    top: 16px;
+    border-radius: 0px 2px 4px 0px;
+
+  }
+  .toast--success {
+
+    &::after {
+      @extend .main;
+      background: $green-base;
+
+    }
+  }
+  .toast--danger {
+
+    &::after {
+      @extend .main;
+      background: $red-base;
+
+    }
+  }
+  .toast--warning {
+
+    &::after {
+      @extend .main;
+      background: $yellow-base;
+
+    }
+  }
+  .toast--information {
+
+    &::after {
+      @extend .main;
+      background: $neutral-600;
+
+    }
+  }
+}

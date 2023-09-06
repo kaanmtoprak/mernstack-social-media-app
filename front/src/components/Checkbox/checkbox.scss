@@ -1,0 +1,14 @@
+@import '../../assets/styles/settings/colors.scss';
+@import '../../assets/styles/settings/mixins.scss';
+
+
+:where(.css-dev-only-do-not-override-17a39f8).ant-checkbox-checked .ant-checkbox-inner {
+    background-color: $neutral-900;
+    border-color: $neutral-900;
+}
+:where(.css-dev-only-do-not-override-17a39f8).ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner, :where(.css-dev-only-do-not-override-17a39f8).ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner {
+    border-color: $neutral-900;
+}
+:where(.css-dev-only-do-not-override-17a39f8).ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
+    background-color: $neutral-900;
+}

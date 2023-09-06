@@ -1,0 +1,16 @@
+@import '../../assets/styles/settings/colors.scss';
+@import '../../assets/styles/settings/mixins.scss';
+
+form {
+    width: 390px;
+    padding: 12px 24px 24px 24px !important;
+    border-radius: 12px;
+    border: 1px solid $neutral-200;
+    h1 {
+        margin-bottom: 24px;
+        text-align: center;
+    }
+    a {
+        color: $neutral-900;
+    }
+}

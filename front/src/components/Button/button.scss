@@ -1,0 +1,63 @@
+@import '../../assets/styles/settings/colors.scss';
+@import '../../assets/styles/settings/mixins.scss';
+
+.button {
+    @include flex-center;
+    width: 100%;
+    min-width: 90px;
+    padding: 4px 8px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    i {
+        margin-right: 5px;
+        color: $white;
+        &::before {
+            font-size: 18px;
+        }
+    }
+    &__content {
+        color: $white;
+        font-size: 16px;
+    }
+    &--green {
+        background-color: $green-base;
+        &:hover {
+            opacity: .9;
+            box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+    }
+    &--red {
+        background-color: $red-base;
+        &:hover {
+            opacity: .9;
+            box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+    }
+    &--black {
+        background-color: $neutral-900;
+        &:hover {
+            opacity: .9;
+            box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+    }
+    &--white {
+        background-color: $white;
+        border: 1px solid $neutral-200;
+        .button__content {
+            color: $neutral-900;
+        }
+        i {
+            color: $neutral-900;
+        }
+        &:hover {
+            opacity: .9;
+            box-shadow: inset 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+        }
+    }
+    &--small {
+        height: 32px;
+    }
+}

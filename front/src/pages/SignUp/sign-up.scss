@@ -1,0 +1,31 @@
+@import '../../assets/styles/settings/mixins.scss';
+
+.sign-up {
+    @include flex-center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    .ant-form-item {
+        margin-bottom: 30px
+    }
+    &__item {
+        &__double {
+            @include flex-center-start;
+            .ant-form-item {
+
+                    + .ant-form-item {
+                        margin-left: 12px;
+                    }
+            }
+
+        }
+    }
+    .inputs {
+        &__password {
+            .ant-form-item {
+                margin-bottom: 48px;
+            }
+        }
+    }
+
+}

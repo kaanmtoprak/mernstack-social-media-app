@@ -1,0 +1,10 @@
+@import '../../assets/styles/settings/colors.scss';
+@import '../../assets/styles/settings/mixins.scss';
+
+.textbox {
+    width: 100%;
+    background-color: $white;
+    padding: 20px;
+    border: 1px solid $neutral-200;
+    border-radius: 8px;
+}
