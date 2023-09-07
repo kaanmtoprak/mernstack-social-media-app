@@ -35,6 +35,24 @@
                 font-size: 14px;
                 color: $neutral-900;
             }
+        
+        }
+        &__actions {
+            
+            .icon {
+                display: block;
+                padding: 3px;
+                cursor: pointer;
+                i{
+                    &::before {
+                        font-size: 14px;
+                    }
+                }
+                &:hover {
+                    background-color: $neutral-100;
+                    border-radius: 50px;
+                }
+            }
         }
 
         &::before {
@@ -70,11 +88,13 @@
         .icon {
             padding: 3px;
             cursor: pointer;
+
             i {
                 &::before {
                     font-size: 20px;
                 }
             }
+
             &:hover {
                 background-color: $neutral-100;
                 border-radius: 50px;

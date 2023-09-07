@@ -12,7 +12,7 @@ const Post = ({post,image,owner,likes,comments}) => {
                 <span>Kaan Toprak</span>
             </div>
             <div className="post__head__actions">
-                <i className='icon-three-dot'></i>
+            <span className='icon'> <i className='icon-three-dot'></i></span>
             </div>
         </div>
         <div className="post__content">
