@@ -1,7 +1,11 @@
 import React from 'react'
 import './post.scss';
+import { Image } from 'antd';
+import {IconButton} from '../index';
 
 const Post = ({post,image,owner,likes,comments}) => {
+
+    console.log(image)
   return (
     <div className='post'>
         <div className="post__head">
@@ -9,21 +13,29 @@ const Post = ({post,image,owner,likes,comments}) => {
                 <figure>
                     <img src="images/profile-img.png" alt="profile" />
                 </figure>
-                <span>Kaan Toprak</span>
+                <span>{owner}</span>
             </div>
             <div className="post__head__actions">
-            <span className='icon'> <i className='icon-three-dot'></i></span>
+            <IconButton size="small" color="black" icon="three-dot"/>
             </div>
         </div>
         <div className="post__content">
-            <div>{post}</div>
+            <div className='text'>{post}</div>
+            <div className="images">
+                {image && image.map((index,key)=>(
+                <Image
+                    key={key}
+                    src={`images/${index}.jpg`}
+                />
+                ))}
+            </div>
         </div>
         <div className="post__actions">
             <div className='post__actions__group'>
-                <span className='icon'><i className='icon-heart'></i></span>
-                <span className='icon'><i className='icon-comment'></i></span>
+                <IconButton size="small" color="black" icon="heart-line"/>
+                <IconButton size="small" color="black" icon="comment"/>
             </div>
-            <span className='icon'><i className='icon-bookmark'></i></span>
+            <IconButton size="small" color="black" icon="bookmark"/>
         </div>
 
     </div>

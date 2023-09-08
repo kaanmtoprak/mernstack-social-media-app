@@ -1,13 +1,13 @@
 import {Router}  from 'express';
 
 import auth from './auth/index.js';
-import todo from './todo/index.js';
+import post from './post/index.js';
 
 
 const router = Router();
 
 router.use('/auth', auth);
-router.use('/todo', todo);
+router.use('/post', post);
 
 
 export default router;

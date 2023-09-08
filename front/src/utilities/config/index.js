@@ -1,10 +1,30 @@
-import { Dashboard, SignIn, SignUp } from "../../pages"
+import { Dashboard, Messages, Notifications, Profile, Settings, SignIn, SignUp } from "../../pages"
 
 
 const routesList  = [
 {
     path:"/",
     component:<Dashboard/>,
+    access:true
+},
+{
+    path:"/profile",
+    component:<Profile/>,
+    access:true
+},
+{
+    path:"/notifications",
+    component:<Notifications/>,
+    access:true
+},
+{
+    path:"/messages",
+    component:<Messages/>,
+    access:true
+},
+{
+    path:"/settings",
+    component:<Settings/>,
     access:true
 },
 {

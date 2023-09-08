@@ -1,7 +1,7 @@
-import Todo from '../../models/Todos/index.js';
+import Post from '../../models/Posts/index.js';
 
 
-const createTodo = async (req,res) => {
+const createPost = async (req,res) => {
     const request = req.body;
 
     try {
@@ -10,7 +10,7 @@ const createTodo = async (req,res) => {
             owner:request.owner._id
     
         })
-        const todo =   await Todo.create(
+        const post =   await Post.create(
             {
             ...request.content,
             owner:request.owner._id
@@ -22,7 +22,7 @@ const createTodo = async (req,res) => {
             success:true,
             status:true,
             data:todo,
-            message:"Todo is successfuly added."
+            message:"Post is successfuly added."
         })
         
     } catch (error) {
@@ -36,4 +36,4 @@ const createTodo = async (req,res) => {
 
 }
 
-export {createTodo}
+export {createPost}

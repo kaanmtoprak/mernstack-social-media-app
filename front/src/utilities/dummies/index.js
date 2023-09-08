@@ -3,34 +3,34 @@
 export const posts = [
     {
         id:1,
-        image:false,
+        image:null,
         likes: [],
         comments: [],
-        owner: 1,
-        post:"Laborum exercitation elit est ad labore ipsum."
+        owner: "Kaan Toprak",
+        post:"Laborum exercitation elit est ad labore ipsum. Ea dolor et eiusmod aute sunt cupidatat cillum anim. Velit et irure sunt esse ullamco. Adipisicing cupidatat laboris elit consectetur ut excepteur. Et voluptate id magna labore dolor proident adipisicing fugiat enim in proident non proident."
     },
     {
         id:2,
-        image:false,
+        image:["image-1","image-2"],
         likes: [],
         comments: [],
-        owner: 1,
-        post:"Laborum exercitation elit est ad labore ipsum."
+        owner: "Mark Quency",
+        post:"Laborum exercitation elit est ad labore ipsum. Ea dolor et eiusmod aute sunt cupidatat cillum anim. Velit et irure sunt esse ullamco. Adipisicing cupidatat laboris elit consectetur ut excepteur. Et voluptate id magna labore dolor proident adipisicing fugiat enim in proident non proident."
     },
     {
         id:3,
-        image:false,
+        image:null,
         likes: [],
         comments: [],
-        owner: 2,
-        post:"Laborum exercitation elit est ad labore ipsum."
+        owner: "Elizabeth Feather",
+        post:"Laborum exercitation elit est ad labore ipsum. Ea dolor et eiusmod aute sunt cupidatat cillum anim. Velit et irure sunt esse ullamco. Adipisicing cupidatat laboris elit consectetur ut excepteur. Et voluptate id magna labore dolor proident adipisicing fugiat enim in proident non proident."
     },
     {
         id:4,
-        image:false,
+        image:["image-1"],
         likes: [],
         comments: [],
-        owner: 2,
-        post:"Laborum exercitation elit est ad labore ipsum."
+        owner: "Ethen Homier",
+        post:"Laborum exercitation elit est ad labore ipsum. Ea dolor et eiusmod aute sunt cupidatat cillum anim. Velit et irure sunt esse ullamco. Adipisicing cupidatat laboris elit consectetur ut excepteur. Et voluptate id magna labore dolor proident adipisicing fugiat enim in proident non proident."
     },
 ]

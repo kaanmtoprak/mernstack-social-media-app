@@ -1,0 +1,52 @@
+@import '../../assets/styles/settings/colors.scss';
+@import '../../assets/styles/settings/mixins.scss';
+
+.profile-page {
+
+    &__head {
+        @include flex-between-center;
+        background-color: $white;
+        padding: 10px;
+        border: 1px solid $neutral-200;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        &__title {
+            color: $neutral-900;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 32px; 
+
+        }
+        &__actions {
+            @include flex-start-center;
+            .icon {
+                i {
+                    font-size: 24px
+                }
+            }
+        }
+        
+    }
+    &__info {
+        @include flex-between-center;
+        background-color: $white;
+        padding: 20px;
+        border: 1px solid $neutral-200;
+        border-radius: 8px;
+        &__profile {
+            @include flex-start-center;
+            flex-direction: column;
+            .image {
+                width: 150px;
+                height: 150px;
+                overflow: hidden;
+                @include flex-center;
+                border-radius: 50%;
+                img {
+                    width: 100%;
+                    height: fit-content;
+                }
+            }
+        }
+    }
+}

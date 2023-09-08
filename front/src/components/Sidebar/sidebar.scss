@@ -22,27 +22,54 @@
         width: 100%;
 
 
-        a {
+        &__link {
+            position: relative;
             font-size: 14px;
             width: 100%;
             padding: 12px;
             @include flex-between-center;
             border-radius: 12px;
             color: $black;
+
             span {
                 @include flex-center;
+
                 i {
                     margin-right: 5px;
                 }
 
             }
+
             &:hover {
                 background-color: $neutral-100;
             }
+
+            &.active-link {
+                background-color: $neutral-100;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 3px;
+                    height: 3px;
+                    border-radius: 20px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    left: 1px;
+                    background-color: $neutral-900;
+                }
+            }
+
+            + .sidebar__nav__link {
+                margin-top: 2px ;
+            }
+
+
         }
     }
     &__logout {
         margin-bottom: 50px;
+        
         a {
             font-size: 14px;
             @include flex-start-center;
