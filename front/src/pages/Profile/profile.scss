@@ -34,7 +34,7 @@
         border: 1px solid $neutral-200;
         border-radius: 8px;
         &__profile {
-            @include flex-start-center;
+            @include flex-center-start;
             flex-direction: column;
             .image {
                 width: 150px;
@@ -46,6 +46,37 @@
                     width: 100%;
                     height: fit-content;
                 }
+            }
+            .name {
+                color: $neutral-900;
+                font-weight: 500;
+                line-height: 24px;
+                font-size: 18px;
+                letter-spacing: 0.28px;
+            }
+            .about {
+                margin-top: 5px;
+                color: $neutral-800;
+                font-weight: 400;
+                line-height: 24px;
+                letter-spacing: 0.28px;
+            }
+            .text-with-icon {
+                @include flex-start-center;
+                font-size: 14px;
+                color: $neutral-700;
+                margin-top: 5px;
+                font-weight: 400;
+                i {
+                    font-size: 20px;
+                    margin-right: 3px;
+                }
+            }
+            .location {
+                @extend .text-with-icon;
+            }
+            .date {
+                @extend .text-with-icon;
             }
         }
     }

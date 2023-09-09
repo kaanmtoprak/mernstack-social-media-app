@@ -2,6 +2,7 @@ import React from 'react'
 import { useAuth } from '../../context/AuthContext';
 import './profile.scss';
 import { IconButton } from '../../components';
+import moment from 'moment'
 
 const Profile = () => {
     const { user } = useAuth();
@@ -25,8 +26,9 @@ const Profile = () => {
                     <img src={`images/${user.user.profile_image}`} alt='profile'/>
                 </figure>
                 <span className='name'>{userInfo.name} {userInfo.surname}</span>
-                {userInfo.about &&<div className='bio'>{userInfo.about}</div>}
-                {userInfo.place &&<div className='place'><i className='icon-location'></i>{userInfo.place}</div>}
+                {userInfo.about &&<div className='about'>{userInfo.about}</div>}
+                {userInfo.place &&<div className='location'><i className='icon-location'></i>{userInfo.place}</div>}
+                {userInfo.createdAt &&<div className='date'><i className='icon-calender'></i>Joined in {moment(userInfo.createdAt).format("MMM Do YY")}</div>}
                 
                 
             </div>
