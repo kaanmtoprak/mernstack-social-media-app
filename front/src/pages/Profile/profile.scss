@@ -52,6 +52,8 @@
         &__about {
             padding-left: 40px;
             .name-div {
+                @include flex-center-start;
+                flex-direction: column;
                 .name {
                     color: $neutral-900;
                     font-weight: 500;
@@ -65,7 +67,6 @@
                     line-height: 24px;
                     font-size: 12px;
                     letter-spacing: 0.28px;
-                    margin-left: 5px;
                 }
             }
             .about {
