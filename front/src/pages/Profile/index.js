@@ -25,13 +25,19 @@ const Profile = () => {
                 <figure className='image'>
                     <img src={`images/${user.user.profile_image}`} alt='profile'/>
                 </figure>
-                <span className='name'>{userInfo.name} {userInfo.surname}</span>
-                {userInfo.about &&<div className='about'>{userInfo.about}</div>}
-                {userInfo.place &&<div className='location'><i className='icon-location'></i>{userInfo.place}</div>}
-                {userInfo.createdAt &&<div className='date'><i className='icon-calender'></i>Joined in {moment(userInfo.createdAt).format("MMM Do YY")}</div>}
-                
-                
+
             </div>
+            <div className="profile-page__info__about">
+                
+                <div className='name-div'><span className='name'>{userInfo.name} {userInfo.surname}</span><span className='username'>@{userInfo.username}</span></div>
+                {userInfo.about &&<div className='about'>{userInfo.about}</div>}
+                <div className='information-div'>
+                {userInfo.place &&<span className='location'><i className='icon-location'></i>{userInfo.place}</span>}
+                <span className='date'><i className='icon-calender'></i>Joined in {moment(userInfo.createdAt).format("YY MMM")}</span>
+                </div>
+                <div className='follow'><span>12 Followers</span> <span>43 Followed</span></div><span></span>
+            </div>
+
         </div>
 </div>
   )

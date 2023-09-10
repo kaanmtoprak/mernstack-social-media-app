@@ -28,14 +28,13 @@
         
     }
     &__info {
-        @include flex-between-center;
+        @include flex-start-start;
         background-color: $white;
         padding: 20px;
         border: 1px solid $neutral-200;
         border-radius: 8px;
         &__profile {
-            @include flex-center-start;
-            flex-direction: column;
+            padding-right: 40px;
             .image {
                 width: 150px;
                 height: 150px;
@@ -47,12 +46,27 @@
                     height: fit-content;
                 }
             }
-            .name {
-                color: $neutral-900;
-                font-weight: 500;
-                line-height: 24px;
-                font-size: 18px;
-                letter-spacing: 0.28px;
+
+            
+        }
+        &__about {
+            padding-left: 40px;
+            .name-div {
+                .name {
+                    color: $neutral-900;
+                    font-weight: 500;
+                    line-height: 24px;
+                    font-size: 18px;
+                    letter-spacing: 0.28px;
+                }
+                .username {
+                    color: $neutral-500;
+                    font-weight: 500;
+                    line-height: 24px;
+                    font-size: 12px;
+                    letter-spacing: 0.28px;
+                    margin-left: 5px;
+                }
             }
             .about {
                 margin-top: 5px;
@@ -72,11 +86,23 @@
                     margin-right: 3px;
                 }
             }
-            .location {
-                @extend .text-with-icon;
+            .information-div {
+                @include flex-start-center;
+                .location {
+                    @extend .text-with-icon;
+                }
+                .date {
+                    @extend .text-with-icon;
+                    margin-left: 5px
+                }
             }
-            .date {
+            .follow {
                 @extend .text-with-icon;
+                span {
+                    + span {
+                        margin-left: 3px;
+                    }
+                }
             }
         }
     }
