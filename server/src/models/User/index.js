@@ -33,6 +33,18 @@ const UserSchema = new Schema({
 		default: "user",
 		enum: ["user", "admin"],
 	},
+    follewers: [
+        {
+            type:mongoose.Schema.ObjectId,
+            ref : "User"
+        }
+    ],
+    followeds: [
+        {
+            type:mongoose.Schema.ObjectId,
+            ref : "User"
+        }
+    ],
 	createdAt : {
         type : Date,
         default: Date.now
