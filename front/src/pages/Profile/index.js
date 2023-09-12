@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../context/AuthContext';
 import './profile.scss';
-import { IconButton } from '../../components';
+import { IconButton, PostContainer } from '../../components';
 import moment from 'moment'
+import { useDispatch, useSelector } from 'react-redux';
+import { getPosts } from '../../redux/slices/Posts/actions';
 
 const Profile = () => {
     const { user } = useAuth();
+    // const [posts,setPosts] = useState(null)
+    const dispatch = useDispatch()
     const userInfo = user.user;
     console.log(user.user.profile_image)
+    const owner = user.user._id
+    const posts = useSelector(state=> state.posts.posts)
+
+    // console.log(posts)
+
+    useEffect(()=>{
+        dispatch(getPosts(owner))
+    },[dispatch,owner])
+
+    
+
   return (
     <div className='profile-page'>
         <div className="profile-page__head">
@@ -38,6 +53,9 @@ const Profile = () => {
                 <div className='follow'><span>12 Followers</span> <span>43 Followed</span></div><span></span>
             </div>
 
+        </div>
+        <div className="profile-page__posts">
+            <PostContainer posts={posts.data}/>
         </div>
 </div>
   )
