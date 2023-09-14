@@ -32,7 +32,6 @@ const createPost = async (req,res) => {
 }
 const getAllPosts = async (req,res) => {
     const owner = req.query.owner;
-    console.log(owner)
     try {
         const posts = await Post.find({owner});
 
