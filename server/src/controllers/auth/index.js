@@ -57,7 +57,7 @@ const Register = async (req, res, next) => {
 const Login = async(req,res,next) =>{
     const response = req.body;
     try {
-        const user = await User.findOne({email: response.email})
+        const user = await User.findOne({email: response.email}).select("+password")
         if(!user) {
             res.json({
                 status:true,
@@ -65,7 +65,7 @@ const Login = async(req,res,next) =>{
                 message:"The email address was not found."
             })
         }
-        const isMatched = await user.isValidPass(response.password);
+        const isMatched = await user.isValidPass(response.password,user.password);
         if (!isMatched) {
 
 			res.json({

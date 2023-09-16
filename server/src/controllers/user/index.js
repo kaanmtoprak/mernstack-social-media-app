@@ -24,10 +24,12 @@ try {
 
 const getUser = async (req,res) => {
     const username = req.query.username;
+    console.log(username)
     try {
         const userData = await User.findOne({username});
+        // console.log(userData)
 
-        if (!usernameControl) {
+        if (!userData) {
             return res.status(404).json({
                 success:false,
                 status:true,
