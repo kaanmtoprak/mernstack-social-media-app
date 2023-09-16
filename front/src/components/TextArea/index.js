@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input } from 'antd';
-import {Button} from '../index';
+import {Button, toastFunction} from '../index';
 import './textarea.scss';
 import { useAuth } from '../../context/AuthContext';
 import axios from 'axios';
@@ -20,6 +20,7 @@ const onFinish = async (values) =>{
     const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/post/add`,data);
     console.log(response)
     form.resetFields();
+    toastFunction("success","Your Post is created successfuly!",)
   } catch (error) {
     console.log(error)
   }

@@ -5,7 +5,6 @@ import {IconButton} from '../index';
 
 const Post = ({post,image,owner,likes,comments}) => {
 
-    console.log(image)
   return (
     <div className='post'>
         <div className="post__head">

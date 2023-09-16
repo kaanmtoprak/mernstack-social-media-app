@@ -4,7 +4,6 @@ import { Post } from '../index'
 import './post-container.scss';
 
 const PostContainer = ({posts}) => {
-  console.log(posts,"aaa")
   return (
     <div className='post-container'>
         {

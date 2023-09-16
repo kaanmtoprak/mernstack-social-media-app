@@ -34,7 +34,7 @@
         border: 1px solid $neutral-200;
         border-radius: 8px;
         &__profile {
-            padding-right: 40px;
+            // padding-right: 40px;
             .image {
                 width: 150px;
                 height: 150px;
@@ -50,61 +50,66 @@
             
         }
         &__about {
+            width: 100%;
+            @include flex-between-start;
             padding-left: 40px;
-            .name-div {
-                @include flex-center-start;
-                flex-direction: column;
-                .name {
-                    color: $neutral-900;
-                    font-weight: 500;
+            &__text {
+                .name-div {
+                    @include flex-center-start;
+                    flex-direction: column;
+                    .name {
+                        color: $neutral-900;
+                        font-weight: 500;
+                        line-height: 24px;
+                        font-size: 18px;
+                        letter-spacing: 0.28px;
+                    }
+                    .username {
+                        color: $neutral-500;
+                        font-weight: 500;
+                        line-height: 24px;
+                        font-size: 12px;
+                        letter-spacing: 0.28px;
+                    }
+                }
+                .about {
+                    margin-top: 5px;
+                    color: $neutral-800;
+                    font-weight: 400;
                     line-height: 24px;
-                    font-size: 18px;
                     letter-spacing: 0.28px;
                 }
-                .username {
-                    color: $neutral-500;
-                    font-weight: 500;
-                    line-height: 24px;
-                    font-size: 12px;
-                    letter-spacing: 0.28px;
+                .text-with-icon {
+                    @include flex-start-center;
+                    font-size: 14px;
+                    color: $neutral-700;
+                    margin-top: 5px;
+                    font-weight: 400;
+                    i {
+                        font-size: 20px;
+                        margin-right: 3px;
+                    }
                 }
-            }
-            .about {
-                margin-top: 5px;
-                color: $neutral-800;
-                font-weight: 400;
-                line-height: 24px;
-                letter-spacing: 0.28px;
-            }
-            .text-with-icon {
-                @include flex-start-center;
-                font-size: 14px;
-                color: $neutral-700;
-                margin-top: 5px;
-                font-weight: 400;
-                i {
-                    font-size: 20px;
-                    margin-right: 3px;
+                .information-div {
+                    @include flex-start-center;
+                    .location {
+                        @extend .text-with-icon;
+                    }
+                    .date {
+                        @extend .text-with-icon;
+                        margin-left: 5px
+                    }
                 }
-            }
-            .information-div {
-                @include flex-start-center;
-                .location {
+                .follow {
                     @extend .text-with-icon;
-                }
-                .date {
-                    @extend .text-with-icon;
-                    margin-left: 5px
-                }
-            }
-            .follow {
-                @extend .text-with-icon;
-                span {
-                    + span {
-                        margin-left: 3px;
+                    span {
+                        + span {
+                            margin-left: 3px;
+                        }
                     }
                 }
             }
+
         }
     }
 }

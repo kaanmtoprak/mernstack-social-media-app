@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useAuth } from '../../context/AuthContext';
 import './profile.scss';
-import { IconButton, PostContainer } from '../../components';
+import { Button, IconButton, PostContainer } from '../../components';
 import moment from 'moment'
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from '../../redux/slices/Posts/actions';
@@ -48,6 +48,8 @@ const Profile = () => {
         return <div>loading...</div>
     }
 
+    console.log(singleUser.data.followeds.includes(userInfo._id),"asd")
+
   return (
     <div className='profile-page'>
         <div className="profile-page__head">
@@ -65,18 +67,23 @@ const Profile = () => {
                 <figure className='image'>
                     <img src={`images/${singleUser.data.profile_image}`} alt='profile'/>
                 </figure>
-
             </div>
             <div className="profile-page__info__about">
                 
-                <div className='name-div'><span className='name'>{singleUser.data.name} {singleUser.data.surname}</span><span className='username'>@{singleUser.data.username}</span></div>
-                {userInfo.about &&<div className='about'>{userInfo.about}</div>}
-                <div className='information-div'>
-                {userInfo.place &&<span className='location'><i className='icon-location'></i>{singleUser.data.place}</span>}
-                <span className='date'><i className='icon-calender'></i>Joined in {moment(singleUser.data.createdAt).format("YY MMM")}</span>
+                <div className="profile-page__info__about__text">
+                    <div className='name-div'><span className='name'>{singleUser.data.name} {singleUser.data.surname}</span><span className='username'>@{singleUser.data.username}</span></div>
+                    {userInfo.about &&<div className='about'>{userInfo.about}</div>}
+                    <div className='information-div'>
+                    {userInfo.place &&<span className='location'><i className='icon-location'></i>{singleUser.data.place}</span>}
+                    <span className='date'><i className='icon-calender'></i>Joined in {moment(singleUser.data.createdAt).format("YY MMM")}</span>
+                    </div>
+                    <div className='follow'><span>{singleUser.data.follewers?.length} Followers</span> <span>{singleUser.data.followeds?.length} Followed</span></div><span></span>
                 </div>
-                <div className='follow'><span>12 Followers</span> <span>43 Followed</span></div><span></span>
+                {!ownProfileControl && <div className="profile-page__info__about__follow">
+                    {singleUser.data.followeds.includes(userInfo._id) ? <Button color="white" size="small" iconLeft="user-followed">You Followed this user</Button> :<Button color="white" size="small" iconLeft="add-user">Follow</Button>}
+                </div>}
             </div>
+
 
         </div>
         <div className="profile-page__posts">
