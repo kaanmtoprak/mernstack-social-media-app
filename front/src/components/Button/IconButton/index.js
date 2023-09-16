@@ -5,15 +5,15 @@ import PropTypes from 'prop-types';
 
 const IconButton = ({icon,color,size,...props}) => {
   return (
-    <span className={classNames('icon-button', {
-        'icon-button--green' : color === 'green',
-        'icon-button--red' : color === 'red',
-        'icon-button--yellow' : color === 'yellow',
-        'icon-button--black' : color === 'black',
-        'icon-button--small' : size === 'small',
+    <span className={classNames('icons-button', {
+        'icons-button--green' : color === 'green',
+        'icons-button--red' : color === 'red',
+        'icons-button--yellow' : color === 'yellow',
+        'icons-button--black' : color === 'black',
+        'icons-button--small' : size === 'small',
 
     })} {...props}>
-        <i className={`icon-${icon}`}></i>
+        <i className={`icon-${icon}`}></i> {props.children && <span className='icons-button__text'>{props.children}</span>}
     </span>
   )
 }

@@ -9,7 +9,9 @@ const PostContainer = ({posts}) => {
     <div className='post-container'>
         {
             posts?.map((index,key)=>(
-                <Post key={key} likes={index.likes} owner={index.owner} post={index.post} comments={index.comments} image={index.image}/>
+                <Post key={key} likes={index.likes} 
+                owner={index.owner} 
+                post={index.post} comments={index.comments} image={index.image}/>
             ))
         }
     </div>

@@ -7,8 +7,13 @@ const routesList  = [
     component:<Dashboard/>,
     access:true
 },
+// {
+//     path:"/profile",
+//     component:<Profile/>,
+//     access:true
+// },
 {
-    path:"/profile",
+    path:"/:username",
     component:<Profile/>,
     access:true
 },

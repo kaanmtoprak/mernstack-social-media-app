@@ -15,7 +15,10 @@ const Profile = () => {
     const owner = user.user._id
     const posts = useSelector(state=> state.posts.posts)
 
-    // console.log(posts)
+
+    const handleGoBack = () => {
+        window.history.back(); 
+      };
 
     useEffect(()=>{
         dispatch(getPosts(owner))
@@ -27,7 +30,7 @@ const Profile = () => {
     <div className='profile-page'>
         <div className="profile-page__head">
             <div className="profile-page__head__title">
-                Your Profile
+            <IconButton onClick={handleGoBack} color="black" icon="arrow-left">Back</IconButton>
             </div>
             <div className="profile-page__head__actions">
                 <IconButton color="green" icon="pencil"/>

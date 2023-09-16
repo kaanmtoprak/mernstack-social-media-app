@@ -9,6 +9,7 @@ import axios from 'axios';
 const CostumTextArea = () => {
     const { TextArea } = Input;
     const {user} = useAuth()
+    const [form] = Form.useForm(); 
 
 const onFinish = async (values) =>{
   const data = {
@@ -18,6 +19,7 @@ const onFinish = async (values) =>{
   try {
     const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/post/add`,data);
     console.log(response)
+    form.resetFields();
   } catch (error) {
     console.log(error)
   }
@@ -29,6 +31,7 @@ const onFinish = async (values) =>{
         <Form
         className='textarea__form'
         onFinish={onFinish}
+        form={form}
         >
           <Form.Item
           name="post"

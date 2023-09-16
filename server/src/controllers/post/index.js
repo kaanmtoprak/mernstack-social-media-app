@@ -1,4 +1,5 @@
 import Post from '../../models/Posts/index.js';
+import User from '../../models/User/index.js';
 
 
 const createPost = async (req,res) => {
@@ -34,11 +35,25 @@ const getAllPosts = async (req,res) => {
     const owner = req.query.owner;
     try {
         const posts = await Post.find({owner});
+        const ownerData = await User.findOne({_id:owner});
+
+        const postsWithOwner = posts.map((post) => {
+            return {
+              ...post._doc, 
+              owner: {
+                _id:ownerData._id,
+                name:ownerData.name,
+                surname:ownerData.surname,
+                username:ownerData.username,
+
+              }, 
+            };
+          });
 
         return res.status(201).json({
             success:true,
             status:true,
-            data:posts,
+            data:postsWithOwner,
             message:"Posts are here."
         })
     } catch (error) {

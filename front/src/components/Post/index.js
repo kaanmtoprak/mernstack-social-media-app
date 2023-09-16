@@ -13,7 +13,7 @@ const Post = ({post,image,owner,likes,comments}) => {
                 <figure>
                     <img src="images/profile-img.png" alt="profile" />
                 </figure>
-                <span>{owner}</span>
+                <span>{owner.name} {owner.surname}</span>
             </div>
             <div className="post__head__actions">
             <IconButton size="small" color="black" icon="three-dot"/>
