@@ -55,7 +55,6 @@ const Profile = () => {
         return <div>loading...</div>
     }
 
-    console.log(singleUser.data.followeds.includes(userInfo._id),"asd")
 
   return (
     <div className='profile-page'>
@@ -97,6 +96,7 @@ const Profile = () => {
             <PostContainer posts={posts.data}/>
         </div>
 </div>
+
   )
 }
 

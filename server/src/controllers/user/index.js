@@ -63,8 +63,13 @@ const followUser = async (req,res) => {
         const controlUser = await User.findById({_id:user});
         if (controlUser.follewers.includes(followingUser)) {
             console.log(true)
+            res.send(controlUser)
         }else {
-            false
+            const newFolloweds = controlUser.follewers
+            newFolloweds.push(followingUser);
+            const newUser = await User.findByIdAndUpdate({_id:user},{followeds:newFolloweds},{new:true})
+            console.log(newUser);
+
         }
     } catch (error) {
         
