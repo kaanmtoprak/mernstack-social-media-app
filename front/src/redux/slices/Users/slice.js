@@ -1,5 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {getSingleUser} from "./actions";
+import {followUser, getSingleUser} from "./actions";
 
 export const usersSlice = createSlice({
     name: "users",
@@ -24,7 +24,11 @@ export const usersSlice = createSlice({
             .addCase(getSingleUser.rejected, (state, {error}) => {
                 state.isLoading = false;
                 state.error = error.message;
-            });
+            })
+            .addCase(followUser.fulfilled, (state, {payload}) => {
+                state.user = payload;
+                state.isLoading = false;
+            })
     },
 })
 

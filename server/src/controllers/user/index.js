@@ -56,4 +56,19 @@ const getUser = async (req,res) => {
     }
 }
 
-export {controlUser,getUser}
+const followUser = async (req,res) => {
+    const {user,followingUser} = req.body;
+
+    try {
+        const controlUser = await User.findById({_id:user});
+        if (controlUser.follewers.includes(followingUser)) {
+            console.log(true)
+        }else {
+            false
+        }
+    } catch (error) {
+        
+    }
+}
+
+export {controlUser,getUser,followUser}

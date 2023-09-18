@@ -8,3 +8,10 @@ export const getSingleUser = createAsyncThunk(
         return await res.data;
     }
 );
+export const followUser = createAsyncThunk(
+    "users/followUser",
+    async (data) => {
+        const res = await axios.post(`${process.env.REACT_APP_BASE_URL}/user/follow-user`,data);
+        return await res.data;
+    }
+);

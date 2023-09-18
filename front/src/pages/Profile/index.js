@@ -6,7 +6,7 @@ import moment from 'moment'
 import { useDispatch, useSelector } from 'react-redux';
 import { getPosts } from '../../redux/slices/Posts/actions';
 import { useParams } from 'react-router-dom';
-import { getSingleUser } from '../../redux/slices/Users/actions';
+import { followUser, getSingleUser } from '../../redux/slices/Users/actions';
 
 const Profile = () => {
     const { user } = useAuth();
@@ -41,7 +41,14 @@ const Profile = () => {
             setOwnProfileControl(true)
         }
 
-    },[setOwnProfileControl,singleUser,userInfo])
+    },[setOwnProfileControl,singleUser,userInfo]);
+
+    const handleFollow = async () =>{
+            dispatch(followUser({
+            user:user.user._id,
+            followingUser:singleUser?.data?._id
+        }))
+    }
 
 
     if(singleUserIsLoading) {
@@ -80,7 +87,7 @@ const Profile = () => {
                     <div className='follow'><span>{singleUser.data.follewers?.length} Followers</span> <span>{singleUser.data.followeds?.length} Followed</span></div><span></span>
                 </div>
                 {!ownProfileControl && <div className="profile-page__info__about__follow">
-                    {singleUser.data.followeds.includes(userInfo._id) ? <Button color="white" size="small" iconLeft="user-followed">You Followed this user</Button> :<Button color="white" size="small" iconLeft="add-user">Follow</Button>}
+                    {singleUser.data.followeds.includes(userInfo._id) ? <Button onClick={handleFollow} color="white" size="small" iconLeft="user-followed">You Followed this user</Button> : <Button onClick={handleFollow}  color="white" size="small" iconLeft="add-user">Follow</Button>}
                 </div>}
             </div>
 
