@@ -45,8 +45,8 @@ const Profile = () => {
 
     const handleFollow = async () =>{
             dispatch(followUser({
-            user:user.user._id,
-            followingUser:singleUser?.data?._id
+            followingUserId:user.user._id,
+            followedUserId:singleUser?.data?._id
         }))
     }
 
@@ -83,7 +83,7 @@ const Profile = () => {
                     {userInfo.place &&<span className='location'><i className='icon-location'></i>{singleUser.data.place}</span>}
                     <span className='date'><i className='icon-calender'></i>Joined in {moment(singleUser.data.createdAt).format("YY MMM")}</span>
                     </div>
-                    <div className='follow'><span>{singleUser.data.follewers?.length} Followers</span> <span>{singleUser.data.followeds?.length} Followed</span></div><span></span>
+                    <div className='follow'><span>{singleUser.data.followers?.length} Followers</span> <span>{singleUser.data.followeds?.length} Followed</span></div><span></span>
                 </div>
                 {!ownProfileControl && <div className="profile-page__info__about__follow">
                     {singleUser.data.followeds.includes(userInfo._id) ? <Button onClick={handleFollow} color="white" size="small" iconLeft="user-followed">You Followed this user</Button> : <Button onClick={handleFollow}  color="white" size="small" iconLeft="add-user">Follow</Button>}

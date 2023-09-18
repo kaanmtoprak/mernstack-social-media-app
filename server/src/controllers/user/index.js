@@ -24,10 +24,9 @@ try {
 
 const getUser = async (req,res) => {
     const username = req.query.username;
-    console.log(username)
+    
     try {
         const userData = await User.findOne({username});
-        // console.log(userData)
 
         if (!userData) {
             return res.status(404).json({
@@ -57,18 +56,21 @@ const getUser = async (req,res) => {
 }
 
 const followUser = async (req,res) => {
-    const {user,followingUser} = req.body;
+    const {followingUserId,followedUserId} = req.body;
 
     try {
-        const controlUser = await User.findById({_id:user});
-        if (controlUser.follewers.includes(followingUser)) {
+        const followingUserCard = await User.findById({_id:followingUserId});
+        const followedUserCard = await User.findById({_id:followedUserId});
+        const followeds = followingUserCard.followeds;
+        const followers = followedUserCard.followers;
+        if (followeds.includes(followedUserId)) {
             console.log(true)
-            res.send(controlUser)
         }else {
-            const newFolloweds = controlUser.follewers
-            newFolloweds.push(followingUser);
-            const newUser = await User.findByIdAndUpdate({_id:user},{followeds:newFolloweds},{new:true})
-            console.log(newUser);
+            followeds.push(followedUserId);
+            followers.push(followingUserId);
+            const newFollowingUser = await User.findByIdAndUpdate({_id:followingUserId},{followeds:followeds},{new:true});
+            const newFollowedUser = await User.findByIdAndUpdate({_id:followedUserId},{followers:followers},{new:true});
+            console.log(newFollowedUser);
 
         }
     } catch (error) {

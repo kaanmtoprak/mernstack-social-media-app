@@ -34,7 +34,7 @@ const UserSchema = new Schema({
 		default: "user",
 		enum: ["user", "admin"],
 	},
-    follewers: [
+    followers: [
         {
             type:mongoose.Schema.ObjectId,
             ref : "User"
