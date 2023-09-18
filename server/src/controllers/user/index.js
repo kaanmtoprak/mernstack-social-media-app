@@ -24,7 +24,7 @@ try {
 
 const getUser = async (req,res) => {
     const username = req.query.username;
-    
+
     try {
         const userData = await User.findOne({username});
 
@@ -69,12 +69,22 @@ const followUser = async (req,res) => {
             followeds.push(followedUserId);
             followers.push(followingUserId);
             const newFollowingUser = await User.findByIdAndUpdate({_id:followingUserId},{followeds:followeds},{new:true});
-            const newFollowedUser = await User.findByIdAndUpdate({_id:followedUserId},{followers:followers},{new:true});
-            console.log(newFollowedUser);
+            await User.findByIdAndUpdate({_id:followedUserId},{followers:followers},{new:true});
+            res.status(201).json({
+                success:true,
+                status:true,
+                data:newFollowingUser,
+                message:"Successful"
+            });
 
         }
     } catch (error) {
-        
+        return res.status(500).json({
+            success:false,
+            status:true,
+            error:error,
+            message:"There is an error."
+        })
     }
 }
 
